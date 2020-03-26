@@ -7,9 +7,9 @@ module.exports={
     async create(request,response){
         const{title, description, value} = request.body; //corpo da requisição
         //request.headers; //guarda informações do contexto/autenticação/localização do usuário
-        const ong_id=request.headers.authorization;
+        const ong_id=request.headers.authorization;//->acessa o id da ong
 
-        const [id] = await connection('incidents').insert({
+        const [id] = await connection('incidents').insert({ //primeiro valor vai ficar armazenado na const id
             title,
             description,
             value,
@@ -18,7 +18,7 @@ module.exports={
         return response.json({id});
     },
 
-    async index (request, response) {
+    async index (request, response) {//método index faz a listagem
         //paginação
         const{page = 1} = request.query;//se page != ele vem da página 1
         

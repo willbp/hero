@@ -1,26 +1,66 @@
+//import React, { useState } from 'react';
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+//import Header from './Header';//importa o Header de dentro do Header.js
+import './global.css';
+
+import Routes from './routes';
+
+
+
+function App() {//função javascript q retorna html
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hello OmniStack!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes />
   );
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+//JSX javascript xml
+//html dentro do javascript
+function App() {//função javascript q retorna html
+
+
+
+  const [counter, setCounter] = useState(0);//primeiro momento counter=0 e setCounter altera o valor de counter
+  //o useState retorna Array [valor da variavel, função de atualização do valor]
+
+  function increment(){
+    setCounter(counter+1);
+    console.log(counter);
+  }
+
+  return (
+    //atributos do html id="title" porém é um atributo passado para componentes
+    //ao invés de repassados para elementos do html
+    //<h1>Hello World</h1>
+    /*<Header title="Semana OmniStack">
+      - Teste de Children
+      </Header>
+
+    <div>
+      <Header>Contador: {counter}</Header>
+      <button onClick={increment}>Incrementar</button>
+    </div>
+  );
+
+
+}
+
+export default App;
+*/

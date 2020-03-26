@@ -9,7 +9,7 @@ const SessionController = require('./controllers/SessionController');
 //const crypto = require('crypto');
 
 //importando conexão
-const connection = require('./database/connection');
+//const connection = require('./database/connection');
 
 const routes = express.Router();
 
@@ -39,8 +39,9 @@ routes.post('/users', (request, response) =>{ //"eu quero acessar o recurso de u
     });
 });
 */
-routes.get('/ongs', OngController.index);
+routes.get('/ongs', OngController.index);//rota de listagem
 routes.post('/ongs', OngController.create); //"eu quero acessar o recurso de usuários /users"
+
 routes.post('/incidents', IncidentController.create);
 routes.delete('/incidents/:id', IncidentController.delete);
 routes.get('/incidents', IncidentController.index);
