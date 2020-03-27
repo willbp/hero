@@ -1,5 +1,5 @@
-const express = require ('express');
-
+const express = require('express');
+const { celebrate, Segments, Joi } = require('celebrate');
 //Importando OngController para aqui dentro
 const OngController = require('./controllers/OngController');
 const IncidentController = require('./controllers/IncidentController');
@@ -17,9 +17,9 @@ const routes = express.Router();
 
 //conteúdo para Listar
 //routes.get('/ongs', async (request, response)=>{//rota para listar
-  //  const ongs = await connection('ongs').select('*');
+//  const ongs = await connection('ongs').select('*');
 
-    //return response.json(ongs);
+//return response.json(ongs);
 
 //});
 
@@ -40,13 +40,43 @@ routes.post('/users', (request, response) =>{ //"eu quero acessar o recurso de u
 });
 */
 routes.get('/ongs', OngController.index);//rota de listagem
-routes.post('/ongs', OngController.create); //"eu quero acessar o recurso de usuários /users"
+
+//"eu quero acessar o recurso de usuários /users"
+
+//whats foi cadastrado como string no bd por isso segue como string aqui
+routes.post('/ongs', celebrate({
+[Segments.BODY]: Joi.object().keys({
+    name: Joi.string().required(),
+    email: Joi.string().required().email(),
+    whatsapp: Joi.string().required().min(10).max(11),
+    city: Joi.string().required(),
+    uf: Joi.string().required().length(2),
+}),
+}), OngController.create);
+
+
+routes.get('/profile', celebrate({
+[Segments.HEADERS]: Joi.object({
+    authorization: Joi.string().required(),
+}).unknown(),
+}), ProfileController.index);
+
+
+routes.get('/incidents', celebrate({
+    [Segments.QUERY]: Joi.object().keys({
+        page: Joi.number(),
+    }),
+}),IncidentController.index);
 
 routes.post('/incidents', IncidentController.create);
-routes.delete('/incidents/:id', IncidentController.delete);
-routes.get('/incidents', IncidentController.index);
-routes.get('/profile', ProfileController.index);
 routes.post('/sessions', SessionController.create);//criando uma sessão
+
+routes.delete('/incidents/:id', celebrate({
+    [Segments.PARAMS]: Joi.object().keys({
+        id: Joi.number().required(),
+    }),
+}),IncidentController.delete);
+
 
 /*
 routes.post('/ongs', async (request, response) =>{ //"eu quero acessar o recurso de usuários /users"

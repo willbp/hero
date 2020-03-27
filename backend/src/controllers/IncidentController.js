@@ -5,7 +5,8 @@ const connection = require('../database/connection');
 module.exports={
     //criar um incidente
     async create(request,response){
-        const{title, description, value} = request.body; //corpo da requisição
+        //corpo da requisição
+        const{title, description, value} = request.body; 
         //request.headers; //guarda informações do contexto/autenticação/localização do usuário
         const ong_id=request.headers.authorization;//->acessa o id da ong
 

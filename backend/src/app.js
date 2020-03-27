@@ -1,5 +1,6 @@
 const express = require('express'); //importando o módulo chamado express para a constante chamada express.
 const cors = require('cors');//importar cors
+const {errors} = require('celebrate');
 const routes = require('./routes'); //./ pois é arquivo e não um pacote para voltar é ../     o ./ referencia o mesmo local do arquivo
 
 const app = express(); //variável q vai armazenar a aplicação. Instanciar (criando a aplicação q vai ter as rotas, funcionalidades, etc).
@@ -10,6 +11,8 @@ app.use(cors());//em caso de produção opção origin: ({'http//meuapp.com')}};
 app.use(express.json()); // deve vir antes das rotas
 
 app.use(routes);
+
+app.use(errors());
 
 /**
  * 
@@ -73,4 +76,6 @@ return response.json({
 */
 
 
-app.listen(3333); //a aplicação vai ouvir a porta 3333 (qdo acessar essa rota ela vai acessar a aplicação)
+//app.listen(3333); //a aplicação vai ouvir a porta 3333 (qdo acessar essa rota ela vai acessar a aplicação)
+
+module.exports=app;
