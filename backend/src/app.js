@@ -14,6 +14,7 @@ app.use(routes);
 
 app.use(errors());
 
+module.exports=app;
 /**
  * 
  * Método HTTP
@@ -78,4 +79,3 @@ return response.json({
 
 //app.listen(3333); //a aplicação vai ouvir a porta 3333 (qdo acessar essa rota ela vai acessar a aplicação)
 
-module.exports=app;

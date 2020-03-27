@@ -21,7 +21,9 @@ module.exports = {
             city,
             uf,
         })
-
-        return response.json(id); //retorna o id gerado para ong.
+        //retorna o id gerado para ong.
+        return response.json({ id });
     }
 };
+
+ //

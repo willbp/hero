@@ -44,7 +44,7 @@ export default function Register() {
             //temos dentro de Ongs, create do tipo post q recebe os dados e retorna um id
             const response = await api.post('ongs', data);
             //dentro do response teremos o ID
-            alert(`Seu ID de acesso: ${response.data}`); //data=resultado da resposta PELO ID
+            alert(`Seu ID de acesso: ${response.data.id}`); //data=resultado da resposta PELO ID
             history.push('/');
 
             console.log(response);

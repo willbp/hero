@@ -11,6 +11,6 @@ exports.up = function(knex) {//responsável pela criação da tabela
 };
 
 exports.down = function(knex) {//Deletar tabela, caso precise voltar átras dela.
-    return knex.chema.dropTable('ongs');
+    return knex.schema.dropTable('ongs');
   
 };
