@@ -50,7 +50,7 @@ Esse projeto foi desenvolvimento durante a Semana OmniStack 11.0, um evento da @
 </table>
 
 ## Getting started
-Para executar o projeto, será necessário instalar/usar os seguintes programas
+Para executar o projeto, será necessário instalar/usar os seguintes programas:
 * [Node.js](https://nodejs.org/en/download/)
 * NPM
 * React
