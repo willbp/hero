@@ -18,7 +18,7 @@ Esse projeto foi desenvolvimento durante a Semana OmniStack 11.0, um evento da @
 	</tr>
 	<tr>
 		<td>
-			<img width="1080" src=https://github.com/willbp/BeTheHero/tree/master/screenshots/web.gif">
+			<img width="1080" src="https://raw.githubusercontent.com/willbp/BeTheHero/tree/master/screenshots/web.gif">
 		</td>
 	</tr>
 </table>
